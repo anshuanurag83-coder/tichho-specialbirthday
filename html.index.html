@@ -1,0 +1,238 @@
+<div id="wishMessage" class="hint"></div>
+
+  </div>
+</section>
+
+
+<!-- SHAYARI SECTION -->
+
+<section>
+
+  <h2>Ek chhoti si shayari… 💌</h2>
+
+  <div class="quote">
+    Teri hansi se roshan har savera rahe,<br>
+    Khushiyon se bhara tera har ek lamha rahe.<br>
+    Jo khwaab dekhe hain tune dil se kabhi,<br>
+    Har khwaab tera haqeeqat banta rahe. ❤️
+  </div>
+
+  <p class="center">
+    May your days be soft, your heart be light,
+    and your world be full of reasons to smile. 🌙
+  </p>
+
+</section>
+
+
+<!-- SECRET LETTER SECTION -->
+
+<section>
+
+  <h2>One little letter, just for you 🫶</h2>
+
+  <div class="center">
+
+    <div class="envelope" id="envelope">
+      💌
+    </div>
+
+    <p class="hint">
+      Tap the envelope to open your secret birthday note.
+    </p>
+
+    <div class="letter-content" id="letter">
+
+      <p><b>Dear Tichho,</b></p>
+
+      <p>
+        Some wishes are too beautiful to fit into
+        one message. So here's mine:
+        may you always be surrounded by people
+        who understand your silence, celebrate
+        your happiness, and stand beside you
+        on difficult days.
+      </p>
+
+      <p>
+        Keep being your lovely, funny,
+        one-of-a-kind self.
+        Never dim your sparkle for anyone.
+        You deserve all the good things
+        this world has to offer.
+      </p>
+
+      <p>
+        And remember:
+        you'll always have a special place
+        in my heart. ❤️
+      </p>
+
+      <p class="signature">
+        With endless love,<br>
+        Your biggest well-wisher 💗
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- FINAL SURPRISE -->
+
+<section class="center">
+
+  <h2>One last thing… 🎀</h2>
+
+  <p>
+    May this new chapter bring you peaceful mornings,
+    unexpected adventures, genuine people,
+    silly laughter, and memories you'll replay
+    with a smile.
+  </p>
+
+  <p style="font-size:23px;color:#ffd6e8">
+    Keep shining, Tichho.
+    The world is sweeter with you in it.
+    <span class="heart">♥</span>
+  </p>
+
+  <button class="btn" id="celebrate">
+    Send you a shower of happiness ✨
+  </button>
+
+</section>
+
+
+<footer>
+  Created with <span class="heart">♥</span>
+  especially for Tichho · Happy Birthday!
+</footer>
+
+</main>
+
+
+<!-- JAVASCRIPT -->
+
+<script>
+
+// CREATE TWINKLING STARS
+
+const stars = document.getElementById("stars");
+
+for (let i = 0; i < 55; i++) {
+
+  const s = document.createElement("span");
+
+  s.className = "star";
+  s.textContent = Math.random() > 0.5 ? "✦" : "·";
+
+  s.style.left = Math.random() * 100 + "%";
+  s.style.top = Math.random() * 100 + "%";
+
+  s.style.fontSize =
+    (8 + Math.random() * 15) + "px";
+
+  s.style.animationDelay =
+    Math.random() * 3 + "s";
+
+  stars.appendChild(s);
+
+}
+
+
+// CONFETTI ANIMATION
+
+function party(count = 95) {
+
+  const layer = document.getElementById("confetti");
+
+  const colors = [
+    "#ff9ecb",
+    "#ffe3a6",
+    "#cbb7ff",
+    "#fff2f7",
+    "#ff79a9"
+  ];
+
+  for (let i = 0; i < count; i++) {
+
+    const c = document.createElement("i");
+
+    c.className = "confetti";
+
+    c.style.left = Math.random() * 100 + "%";
+
+    c.style.background =
+      colors[Math.floor(Math.random() * colors.length)];
+
+    c.style.animationDuration =
+      (3 + Math.random() * 3) + "s";
+
+    c.style.animationDelay =
+      Math.random() * 0.8 + "s";
+
+    c.style.borderRadius =
+      Math.random() > 0.5 ? "50%" : "2px";
+
+    layer.appendChild(c);
+
+    setTimeout(() => c.remove(), 7000);
+
+  }
+
+}
+
+
+// BLOW THE BIRTHDAY CANDLE
+
+const cake = document.getElementById("cake");
+
+function blow() {
+
+  cake.classList.add("blown");
+
+  document.getElementById("wishMessage").textContent =
+    "Wish sent to the universe! May it come true, Tichho! 🌟";
+
+  party(65);
+
+}
+
+document.getElementById("blow")
+  .addEventListener("click", blow);
+
+cake.addEventListener("click", blow);
+
+
+// OPEN SECRET LETTER
+
+function openLetter() {
+
+  document.getElementById("letter")
+    .classList.toggle("show");
+
+}
+
+document.getElementById("envelope")
+  .addEventListener("click", openLetter);
+
+
+// FINAL CELEBRATION
+
+document.getElementById("celebrate")
+  .addEventListener("click", () => {
+
+    party(160);
+
+    document.getElementById("celebrate").textContent =
+      "All this happiness is yours, Tichho! 💗";
+
+  });
+
+</script>
+
+</body>
+</html>
